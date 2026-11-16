@@ -4,6 +4,8 @@ A single-page personal portfolio for **Siddharth Pramanik**, senior software dev
 (Android, Android TV and enterprise media platforms, plus practical Generative AI).
 Static HTML/CSS/JS — no build step, no dependencies, no framework.
 
+**Live:** <https://sidpram.github.io/portfolio/>
+
 Live content is written from his résumé: 20+ years in software, the iDS digital signage
 platform on 2,000+ devices, and Python/LLM side projects.
 
@@ -24,7 +26,8 @@ fonts and relative asset paths behave exactly as they will in production.
 
 Upload the whole folder as-is to any static host:
 
-- **GitHub Pages** — push the repo, Settings → Pages → deploy from branch root.
+- **GitHub Pages** — already enabled: pushes to `main` deploy to
+  <https://sidpram.github.io/portfolio/> (Settings → Pages → deploy from branch root).
 - **Netlify / Vercel / Cloudflare Pages** — drag the folder in, no build command, output directory `/`.
 - **Any web host** — copy `index.html` and the `assets/` folder to the web root.
 

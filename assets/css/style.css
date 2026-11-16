@@ -975,7 +975,7 @@ main,
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: conic-gradient(from -90deg, #3ddc84 0%, #2fe39e 44%, #22d3ee 72%, rgba(255, 255, 255, 0.06) 72% 100%);
+  background: conic-gradient(from -90deg, #3ddc84 0%, #2fe39e 60%, #22d3ee 98%, rgba(255, 255, 255, 0.06) 98% 100%);
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
 }
@@ -1366,6 +1366,7 @@ main,
 
 .about__visual {
   position: relative;
+  min-width: 0;
 }
 
 .terminal {
@@ -1471,6 +1472,10 @@ main,
   background: var(--surface);
   font-size: 0.73rem;
   color: var(--muted);
+}
+
+.about__content {
+  min-width: 0;
 }
 
 .about__content h3 {
@@ -1748,22 +1753,22 @@ main,
   opacity: 0.55;
 }
 
-.thumb--pulse {
+.thumb--ids {
   background:
     radial-gradient(circle at 22% 12%, rgba(61, 220, 132, 0.3), transparent 58%),
     linear-gradient(160deg, #0e1a15, #090b11 62%);
 }
 
-.thumb--ledger {
+.thumb--cast {
   background:
-    radial-gradient(circle at 78% 15%, rgba(139, 92, 246, 0.34), transparent 58%),
-    linear-gradient(160deg, #151129, #090b11 65%);
+    radial-gradient(circle at 78% 15%, rgba(34, 211, 238, 0.3), transparent 58%),
+    linear-gradient(160deg, #0b1722, #090b11 65%);
 }
 
-.thumb--nimbus {
+.thumb--guest {
   background:
-    radial-gradient(circle at 25% 85%, rgba(34, 211, 238, 0.28), transparent 58%),
-    linear-gradient(160deg, #0d1720, #090b11 65%);
+    radial-gradient(circle at 25% 85%, rgba(139, 92, 246, 0.26), transparent 58%),
+    linear-gradient(160deg, #141129, #090b11 65%);
 }
 
 .mock {
@@ -1885,6 +1890,7 @@ main,
 .mock__dot--green { background: var(--green); }
 .mock__dot--violet { background: var(--violet); }
 .mock__dot--cyan { background: var(--cyan); }
+.mock__dot--amber { background: #fbbf24; }
 
 .mock__row-label {
   flex: 1;
@@ -1894,8 +1900,10 @@ main,
 }
 
 .mock__row-val {
+  flex: none;
   font-family: var(--font-mono);
   font-size: 0.58rem;
+  white-space: nowrap;
   color: var(--muted-2);
 }
 
@@ -1903,12 +1911,72 @@ main,
   color: var(--green);
 }
 
-.mock--ledger .mock__spark {
-  width: 100%;
-  height: 56px;
+.mock__row-val--warn {
+  color: #fbbf24;
+}
+
+/* iDS mock — three status rows, so tighten the chart to fit the thumb */
+.mock--ids {
+  padding: 13px 14px;
+}
+
+.mock--ids .mock__bars {
+  height: 34px;
   margin-top: 10px;
-  color: #a78bfa;
-  overflow: visible;
+}
+
+.mock--ids .mock__row {
+  margin-top: 7px;
+  padding-top: 7px;
+}
+
+/* Casting mock — PlayCast4K */
+.cast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 11px;
+  border-radius: 12px;
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  background: rgba(34, 211, 238, 0.07);
+}
+
+.cast__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(34, 211, 238, 0.14);
+  color: #7dd3fc;
+}
+
+.cast__icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.cast__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cast__info strong {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.cast__info span {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--muted-2);
 }
 
 .weather {
@@ -2063,6 +2131,89 @@ main,
 
 .work__foot .link-arrow {
   font-size: 0.82rem;
+}
+
+/* ---------- 7b. AI side projects strip ---------- */
+.ai-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 28px;
+  margin-top: 34px;
+  padding: 26px 28px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.12), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+}
+
+.ai-strip__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.ai-strip__intro h3 {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.ai-strip__list {
+  display: grid;
+  gap: 16px;
+}
+
+.ai-strip__list > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+
+.ai-strip__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  background: rgba(34, 211, 238, 0.08);
+  color: #7dd3fc;
+}
+
+.ai-strip__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ai-strip__list strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.ai-strip__list .mono {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.ai-strip__list p {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--muted);
 }
 
 /* ---------- 8. Services, process, experience ---------- */
@@ -2638,6 +2789,11 @@ main,
     max-width: 60ch;
     padding-bottom: 0;
   }
+
+  .ai-strip {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2962,6 +3118,14 @@ main,
     font-size: 0.7rem;
     padding: 16px;
     line-height: 1.85;
+  }
+
+  .ai-strip {
+    padding: 22px 18px;
+  }
+
+  .ai-strip__list > li {
+    padding-left: 14px;
   }
 }
 

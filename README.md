@@ -1,7 +1,11 @@
 # Siddharth Pramanik — Portfolio
 
-A single-page personal portfolio for Siddharth Pramanik, Android developer & freelancer.
+A single-page personal portfolio for **Siddharth Pramanik**, senior software developer
+(Android, Android TV and enterprise media platforms, plus practical Generative AI).
 Static HTML/CSS/JS — no build step, no dependencies, no framework.
+
+Live content is written from his résumé: 20+ years in software, the iDS digital signage
+platform on 2,000+ devices, and Python/LLM side projects.
 
 ## Run it
 
@@ -33,23 +37,33 @@ assets/js/main.js       Nav, mobile menu, scrollspy, reveals, counters, tilt, co
 assets/favicon.svg      Site icon
 ```
 
+## Content map
+
+| Section | What's on the page |
+| --- | --- |
+| Hero | Positioning, 20+ years / 2,000+ devices / 8 engineers, iDS console mockup |
+| About | Career narrative, scale & reliability, technical leadership, applied AI |
+| Skills | Android & TV, Generative AI, Architecture, Media/APIs/data, Cloud & delivery |
+| Work | iDS, PlayCast4K, GuestVerse + AI side-project strip |
+| Services | Android & TV development, architecture & leadership, rescue & optimize, AI integration |
+| Experience | Independent consultant (2026–), iRevo (2012–2026), Insyde (2007–2012), VisualSoft (2004–2007) |
+| Contact | Email, copy-email button, GitHub, LinkedIn |
+
 ## What to customize
 
-Search `index.html` for `✏️ EDIT` — every placeholder is marked. In short:
-
-1. **Email** — replace `hello@siddharthpramanik.dev` in three places:
-   the contact button, the copy-email button (`data-email`), and the social/mail links.
-   Also update the two `mailto:` résumé links in the Experience section.
-2. **Social links** — `https://github.com/`, `https://www.linkedin.com/`, `https://x.com/`
-   currently point at the bare domains. Swap in your real profile URLs.
-3. **Projects** — the three sample projects (`Pulse`, `Ledgerly`, `Nimbus`) and their
-   CSS-drawn thumbnails. Replace names, descriptions, chips and links with real work.
-   Thumbnails are pure CSS (`.thumb--pulse`, `.thumb--ledger`, `.thumb--nimbus`), so you
-   can either restyle them or drop in `<img>` screenshots.
-4. **Stats** — the hero counters (`data-count="5"`, `20`, `10`).
-5. **Experience** — the three timeline entries: roles, dates, companies and bullet points.
+1. **Email** — `siddharthpramanik9@gmail.com` appears in the contact button, the
+   copy-email button (`data-email`), the social/mail links, the footer, and the two
+   `mailto:` résumé links in the Experience section. Change all of them together.
+2. **Social links** — GitHub (`https://github.com/sidpram`) and LinkedIn
+   (`https://www.linkedin.com/in/siddharth-pramanik`) in the contact block and footer.
+3. **Projects** — the three cards (`iDS — Digital Signage`, `PlayCast4K`, `GuestVerse`)
+   plus the AI side-project strip. Thumbnails are pure CSS
+   (`.thumb--ids`, `.thumb--cast`, `.thumb--guest`), so you can restyle them or drop in
+   `<img>` screenshots.
+4. **Stats** — the hero counters (`data-count="20"`, `2000`, `8`).
+5. **Experience** — four timeline entries: roles, dates, companies and bullet points.
 6. **Location/time** — the footer clock is hard-coded to `Asia/Kolkata` in `assets/js/main.js`;
-   change the `timeZone` value and the "IST · India" label if you relocate.
+   change the `timeZone` value and the "IST · India" label if relocating.
 7. **Meta tags** — `title`, `description`, `og:title`, `og:description` near the top of
    `index.html`. Add an `og:image` if you want rich link previews.
 
@@ -72,3 +86,4 @@ All colors, fonts and layout measurements are CSS custom properties at the top o
 - The `.js` class is added to `<html>` by a tiny inline script so reveal animations only
   hide content when JavaScript is actually available.
 - Copy-email uses the async Clipboard API with an `execCommand` fallback for older browsers.
+- The phone number from the résumé is intentionally **not** published on the site.

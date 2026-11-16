@@ -128,7 +128,13 @@
           const id = entry.target.id;
 
           spyLinks.forEach(function (link) {
-            link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
+            const active = link.getAttribute("href") === "#" + id;
+            link.classList.toggle("is-active", active);
+            if (active) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
           });
         });
       },
@@ -169,11 +175,13 @@
   }
 
   /* ---------- Animated counters ---------- */
+  const numberFormat = new Intl.NumberFormat("en-IN");
+
   function runCounter(el) {
     const target = Number(el.getAttribute("data-count") || 0);
 
     if (reduceMotion) {
-      el.textContent = String(target);
+      el.textContent = numberFormat.format(target);
       return;
     }
 
@@ -183,7 +191,7 @@
     function frame(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = String(Math.round(target * eased));
+      el.textContent = numberFormat.format(Math.round(target * eased));
       if (progress < 1) window.requestAnimationFrame(frame);
     }
 

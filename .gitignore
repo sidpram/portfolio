@@ -11,3 +11,7 @@ desktop.ini
 # Node (none required, but keeps accidental installs out)
 node_modules/
 npm-debug.log*
+
+# Agent tooling (local only)
+.agents/
+skills-lock.json
